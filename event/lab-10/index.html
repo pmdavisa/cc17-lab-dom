@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <label for="">Province:</label>
+  <select name="province" id="province">Select
+    <option value = "" disabled selected>Select</option>
+
+  </select>
+
+  <label for="">District:</label>
+  <select name="district" id="district">Select
+    <option value = "" disabled selected>Select</option>
+
+  </select>
+
+
+<script>
+
+const province = ["Bangkok", "Phuket", "Chiangmai"]
+const district = {
+  Bangkok: ["Yanawa", "Phyathai", "Klongtoey"],
+  Phuket: ["Mueang Phuket", "Kathu", "Thalang"],
+  Chiangmai : ["Doi Saket", "Mae Rim", "San sai"]
+}
+
+const provinceEl = document.getElementById('province')
+const districtEl = document.getElementById('district')
+
+province.forEach((p) =>{
+  let optionP = document.createElement("option")
+  optionP.textContent = p
+  optionP.setAttribute = ("value", p)
+  provinceEl.append(optionP)
+})
+
+function createDistrict(){
+  let districtArr = district[provinceEl.value]
+  districtArr.forEach((d) => {
+    let optionD = document.createElement("option")
+    optionD.textContent = d
+    optionD.setAttribute("value",d)
+    districtEl.append(optionD)
+  })
+  districtEl.removeEventListener('click', createDistrict)
+}
+
+function addDistrict(){
+  districtEl.innerHTML = "<option vdisable selected>select</option"
+  districtEl.addEventListener('click', createDistrict)
+}
+
+
+provinceEl.addEventListener("click", addDistrict)
+
+</script>  
+  
+</body>
+</html>

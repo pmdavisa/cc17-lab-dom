@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+    const ul = document.createElement('ul')
+    const body = document.body
+    body.append(ul)
+
+    while(true){
+      const input = prompt('enter text')
+        if(input.trim() === '' || input === null) break; // if (!input || !input.trim())
+
+      const li = document.createElement('li')
+      li.textContent = input
+      ul.append(li)
+    }
+
+    // const ul = document.createElement('ul')
+    // let text = prompt("enter somthing")
+    // while(!(text === null || text.trim() === '')) {
+    //   const li = document.createElement('li')
+    //   li.textContent = text
+    //   ul.append(li)
+    //   text = prompt("enter somthing")
+    // }
+    // document.body.prepend(ul)
+
+
+  </script>
+</body>
+</html>

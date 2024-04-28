@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button>Hide</button>
+  <h2>Lorem ipsum dolor sit amet.</h2>
+
+
+  <script>
+    const button = document.querySelector('button')
+    const text = document.querySelector('h2')
+
+    let isHidden = false
+
+    function hideText(){
+      // console.log("hide");
+      text.hidden = !isHidden
+      button.innerHTML = isHidden ? "Hide": "Show"
+      isHidden = !isHidden
+      console.log(isHidden)
+      
+    }
+    // function showText(){
+    //   // console.log('show')
+    //   text.hidden = isShow
+    //   button.innerHTML = "Hide"
+    //   isShow = !isShow
+    
+    // }
+    
+    button.addEventListener('click', hideText)
+    // button.addEventListener('click', () => {if(!isShow === true){hideText}})
+    // button.addEventListener('click', () => {if(isShow === true){showText}})
+  
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* .crossLine {
+      color: green;
+      text-decoration: line-through;
+    } */
+
+  </style>
+</head>
+<body>
+  
+<button id="addBtn">Add</button>
+<br><br>
+<div id="taskList"></div>
+
+
+  <script>
+
+    let count = 1
+    const addBtn = document.getElementById("addBtn")
+    const task = document.getElementById("taskList")
+
+    addBtn.addEventListener('click', addNewTask)
+
+    function addNewTask(){
+      const task = document.createElement("div")
+      const span = document.createElement("span")
+      
+      span.textContent = `Task ${count}`; count++
+      task.append(span)
+      taskList.append(task)
+      span.addEventListener('click', toggleText)
+
+      const edit = document.createElement("button")
+      edit.textContent = "Edit"
+      task.append(edit)
+      edit.addEventListener('click', editText)
+
+      const del = document.createElement("button")
+      del.textContent = "Del"
+      task.append(del)
+      del.addEventListener('click', delText)
+    }
+
+    function toggleText(){
+      this.classList.toggle("crossText")
+      if(this.classList.contains("crossText")) {
+        this.style.textDecoration = "line-through"
+        this.style.color = "green"
+      } else {
+        this.style.textDecoration = ""
+        this.style.color = ""
+      }
+    }
+    
+    
+    function editText(){
+      const span = this.previousElementSibling
+      let editedTask = prompt("Edit task name", span.textContent)
+      if(editedTask !== null && editedTask.trim() !== "") {
+        span.textContent = editedTask
+      }
+    }
+    
+   
+    function delText(){
+      const div = this.parentElement
+      div.textContent = ""
+    }
+
+
+
+  </script>
+</body>
+</html>

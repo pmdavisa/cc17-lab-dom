@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" placeholder="Phone Number">
+  <button>Check</button>
+
+  <h3 style="visibility: hidden;">Phone number is required</h3>
+
+  <script>
+    const check = document.querySelector('button')
+    const input = document.querySelector('input')
+    const h3 = document.querySelector('h3')
+
+    let text = ''
+
+    
+    function numberCheck(){
+      if(text ==''){
+        h3.textContent = 'Phone number is required'
+        input.style.borderColor = "red"
+        h3.style.color='red'
+        h3.style.visibility = "visible"
+      } else if (typeof +text !== 'number' || isNaN(+text) ){
+        h3.textContent = 'Phone number is invalid'
+        input.style.borderColor = "red"
+        h3.style.color='red'
+        h3.style.visibility = "visible"
+
+      }else if(+text.length !== 10){
+        h3.textContent = 'Invalid Length'
+        input.style.borderColor = "red"
+        h3.style.color='red'
+        h3.style.visibility = "visible"
+      } else {
+        h3.textContent = 'Your Number is Valid'
+        input.style.borderColor = "red"
+        h3.style.color='red'
+        h3.style.visibility = "visible"
+      }
+    }
+
+    input.addEventListener('input', (event)=> {
+      // console.log(event.target.value)
+      text = event.target.value
+    })
+    check.addEventListener('click', numberCheck)
+
+  </script>
+
+
+</body>
+</html>
